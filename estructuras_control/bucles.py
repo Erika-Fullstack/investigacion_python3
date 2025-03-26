@@ -1,73 +1,58 @@
-
-#hay que mirar eso 
-
-
-# Importar functools para reduce
-from functools import reduce
-
 # Bucles (while, for in, range())
-print("Bucles:")
-i = 0
-while i < 3:
-    print(f"While: {i}")
-    i += 1
+print("While:")
 
+contador = 1
+while contador <= 5:
+    print(f"Día {contador}:")
+    if contador % 2 == 0:
+        print("  - Hacer ejercicio")
+    else:
+        print("  - Descansar")
+    contador += 1
+print("Fin del programa")
+
+print()
+
+print("for in")
 for i in range(3):
     print(f"For with range: {i}")
 
+print()
+
 # Break y Continue
 print("\nBreak y Continue:")
-for i in range(5):
-    if i == 2:
-        continue
-    if i == 4:
-        break
-    print(f"Número: {i}")
+for i in range(1, 6):
+    if i == 3:
+        continue  # Salta el número 3
+    if i == 5:
+        print("Terminando el bucle")
+        break  # Termina el bucle en el número 5
+    print(f"El número es {i}")
+
+print()
 
 # List comprehension
 print("\nList comprehension:")
-cuadrados = [x**2 for x in range(5)]
+numeros=[1,2,3,4,5]
+cuadrados = [x**2 for x in numeros if x % 2==0]
 print(f"Cuadrados: {cuadrados}")
+
+print()
 
 # Condicionales (if/else/elif, ternario)
 print("\nCondicionales:")
-x = 10
-if x > 10:
-    print("x es mayor que 10")
-elif x < 10:
-    print("x es menor que 10")
+edad = 18
+if edad < 18:
+    print("x es menor de edad")
+elif edad == 18:
+    print("acaba de alcanzar 18")
 else:
-    print("x es igual a 10")
+    print("eres mayor de edad")
+
+print()
 
 # Operador ternario
-resultado = "Par" if x % 2 == 0 else "Impar"
-print(f"x es {resultado}")
+temperatura = 25
+estado = "calor" if temperatura > 20 else "frio"
+print(f"Hace {estado}")
 
-# Funciones avanzadas (lambda, map, filter, reduce, enumerate, zip)
-print("\nFunciones avanzadas:")
-# Lambda
-cubo = lambda x: x**3
-print(f"Cubo de 3: {cubo(3)}")
-
-# Map
-numeros = [1, 2, 3, 4, 5]
-cuadrados_map = list(map(lambda x: x**2, numeros))
-print(f"Cuadrados con map: {cuadrados_map}")
-
-# Filter
-pares = list(filter(lambda x: x % 2 == 0, numeros))
-print(f"Números pares: {pares}")
-
-# Reduce
-suma = reduce(lambda x, y: x + y, numeros)
-print(f"Suma de números: {suma}")
-
-# Enumerate
-for i, valor in enumerate(["a", "b", "c"]):
-    print(f"Índice {i}: {valor}")
-
-# Zip
-nombres = ["Ana", "Bob", "Carlos"]
-edades = [25, 30, 35]
-for nombre, edad in zip(nombres, edades):
-    print(f"{nombre} tiene {edad} años")
