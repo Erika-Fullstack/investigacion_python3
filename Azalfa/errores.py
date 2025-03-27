@@ -1,43 +1,123 @@
-# Python code to illustrate 
-# working of try()  
-
-def divide(x, y): 
-    try: 
-        # Floor Division : Gives only Fractional 
-        # Part as Answer 
-        result = x // y 
-    except ZeroDivisionError: 
-        print("Sorry ! You are dividing by zero ") 
-    else:
-        print("Yeah ! Your answer is :", result) 
-    finally:  
-        # this block is always executed   
-        # regardless of exception generation.  
-        print('This is always executed')   
-
-# Look at parameters and note the working of Program 
-divide(6, 2) # 3 // 2 da 1
-divide(3, 0) # 3 // 0 genera un ZeroDivisionError
-
-
-#Example 2 multiple except block 
-"""Ejemplo con múltiples bloques de excepción"""
-
-'''try:
-    num = int(input("Enter a number: "))  # Try to convert user input to an integer
-    result = 10 / num  # Try dividing 10 by the input number
-except ValueError:  # Handles case when input is not a number
-    print("Invalid input! Please enter a valid number.")
-except ZeroDivisionError:  # Handles division by zero
-    print("You can't divide by zero!")
-else:
-    print(f"Result: {result}")  # Executes only if no exception occurs
+# 1. SyntaxError
+try:
+    print("Hello World"  # Missing closing parenthesis
+except SyntaxError as e:
+    print(f"SyntaxError handling: {e}")
 finally:
-    print("Execution complete.")  # Always executes'''
+    print("\n---\n")
 
+# 2. NameError
+try:
+    print(a)  # 'a' is not defined
+except NameError as e:
+    print(f"NameError handling: {e}")
+finally:
+    print("\n---\n")
 
+# 3. TypeError
+try:
+    x = "hello" + 5  # Can't add a string and a number
+except TypeError as e:
+    print(f"TypeError handling: {e}")
+finally:
+    print("\n---\n")
 
+# 4. ValueError
+try:
+    x = int("hello")  # Can't convert a non-numeric string to an integer
+except ValueError as e:
+    print(f"ValueError handling: {e}")
+finally:
+    print("\n---\n")
 
+# 5. IndexError
+try:
+    lst = [1, 2, 3]
+    print(lst[5])  # Index out of range
+except IndexError as e:
+    print(f"IndexError handling: {e}")
+finally:
+    print("\n---\n")
 
+# 6. KeyError
+try:
+    my_dict = {'a': 1, 'b': 2}
+    print(my_dict['c'])  # Key 'c' doesn't exist
+except KeyError as e:
+    print(f"KeyError handling: {e}")
+finally:
+    print("\n---\n")
 
+# 7. AttributeError
+try:
+    x = 5
+    x.append(10)  # 'int' object has no attribute 'append'
+except AttributeError as e:
+    print(f"AttributeError handling: {e}")
+finally:
+    print("\n---\n")
 
+# 8. FileNotFoundError
+try:
+    with open("nonexistent_file.txt", "r") as file:
+        content = file.read()  # File not found
+except FileNotFoundError as e:
+    print(f"FileNotFoundError handling: {e}")
+finally:
+    print("\n---\n")
+
+# 9. ZeroDivisionError
+try:
+    x = 10 / 0  # Division by zero
+except ZeroDivisionError as e:
+    print(f"ZeroDivisionError handling: {e}")
+finally:
+    print("\n---\n")
+
+# 10. OverflowError
+try:
+    import math
+    x = math.exp(1000)  # Exceeds the maximum size
+except OverflowError as e:
+    print(f"OverflowError handling: {e}")
+finally:
+    print("\n---\n")
+
+# 11. ImportError
+try:
+    import non_existent_module  # Module not found
+except ImportError as e:
+    print(f"ImportError handling: {e}")
+finally:
+    print("\n---\n")
+
+# 12. StopIteration
+try:
+    my_list = iter([1, 2, 3])
+    next(my_list)
+    next(my_list)
+    next(my_list)
+    next(my_list)  # This will raise StopIteration
+except StopIteration as e:
+    print(f"StopIteration handling: {e}")
+finally:
+    print("\n---\n")
+
+# 13. MemoryError
+try:
+    lst = [1] * (10**10)  # Trying to create a huge list
+except MemoryError as e:
+    print(f"MemoryError handling: {e}")
+finally:
+    print("\n---\n")
+
+# 14. NotImplementedError
+try:
+    def my_function():
+        raise NotImplementedError("This functionality is not implemented yet")
+    
+    my_function()  # This will raise NotImplementedError
+except NotImplementedError as e:
+    print(f"NotImplementedError handling: {e}")
+finally:
+    print("\n---\n")
