@@ -1,6 +1,6 @@
 # 1. SyntaxError
 try:
-    print("Hello World"  # Missing closing parenthesis
+    print("Hello World" # Missing closing parenthesis
 except SyntaxError as e:
     print(f"SyntaxError handling: {e}")
 finally:
