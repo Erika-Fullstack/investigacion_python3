@@ -76,7 +76,7 @@ finally:
 # 10. OverflowError
 try:
     import math
-    x = math.exp(100)  # Exceeds the maximum size
+    x = math.exp(1000)  # Exceeds the maximum size
     print(x)
 except OverflowError as e:
     print(f"OverflowError handling: {e}")
