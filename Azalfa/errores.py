@@ -59,8 +59,7 @@ finally:
 
 # 8. FileNotFoundError
 try:
-    with open("nonexistent_file.txt", "r") as file:
-        content = file.read()  # File not found
+    with open("nonexisting_file.txt", "r") as file:
 except FileNotFoundError as e:
     print(f"FileNotFoundError handling: {e}")
 finally:
@@ -77,7 +76,8 @@ finally:
 # 10. OverflowError
 try:
     import math
-    x = math.exp(1000)  # Exceeds the maximum size
+    x = math.exp(100)  # Exceeds the maximum size
+    print(x)
 except OverflowError as e:
     print(f"OverflowError handling: {e}")
 finally:
@@ -85,7 +85,7 @@ finally:
 
 # 11. ImportError
 try:
-    import non_existent_module  # Module not found
+    import no  # Module not found
 except ImportError as e:
     print(f"ImportError handling: {e}")
 finally:
@@ -94,18 +94,19 @@ finally:
 # 12. StopIteration
 try:
     my_list = iter([1, 2, 3])
-    next(my_list)
-    next(my_list)
-    next(my_list)
-    next(my_list)  # This will raise StopIteration
-except StopIteration as e:
-    print(f"StopIteration handling: {e}")
+    print(next(my_list))
+    print(next(my_list))
+    print(next(my_list))
+    print(next(my_list))  # Will raise StopIteration
+except StopIteration:
+    print(f"No more items!")
 finally:
     print("\n---\n")
 
 # 13. MemoryError
 try:
-    lst = [1] * (10**10)  # Trying to create a huge list
+    lst = [1] * (10**10)
+    print(lst)  # Trying to create a huge list
 except MemoryError as e:
     print(f"MemoryError handling: {e}")
 finally:
