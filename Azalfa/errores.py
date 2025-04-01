@@ -60,6 +60,8 @@ finally:
 # 8. FileNotFoundError
 try:
     with open("nonexisting_file.txt", "r") as file:
+       content = file.read()  
+       print(content)
 except FileNotFoundError as e:
     print(f"FileNotFoundError handling: {e}")
 finally:
@@ -68,6 +70,7 @@ finally:
 # 9. ZeroDivisionError
 try:
     x = 10 / 0  # Division by zero
+    print(x)
 except ZeroDivisionError as e:
     print(f"ZeroDivisionError handling: {e}")
 finally:
@@ -105,7 +108,7 @@ finally:
 
 # 13. MemoryError
 try:
-    lst = [1] * (10**10)
+    lst = [1] * (10*10)
     print(lst)  # Trying to create a huge list
 except MemoryError as e:
     print(f"MemoryError handling: {e}")
